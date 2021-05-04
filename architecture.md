@@ -22,6 +22,7 @@
 - [Chapter 18 - Scaling (Scalability)](./scaling.md#chapter-18---scaling)
 - [Chapter 19 - Sizing (Scalability)](./sizing.md#chapter-19---sizing)
 - [Chapter 20 - Security (Engineer)](./security.md#chapter-20---security)
+- [Chapter 21 - Usage Recommendations (Scalability)](./recommendation.md#chapter-21---usage-recommendations)
 - [License & Contributing](./license.md)
 
 ## Chapter 3 - Architecture
@@ -424,7 +425,7 @@ A handy little tool to document architecture, especially for smaller projects, i
 
 <p align="center">
     <img src="./res/img/architecture-cognitive-architect-screenshot.png" alt="Cognitive Architect"> <br/>
-  <sub> &copy; IBM - <a href="https://ibm.biz/cogarch-app">https://ibm.biz/cogarch-app</a></sub>
+  <sub> &copy; IBM - <a href="https://ibm.biz/cogarch-app">https://ibm.biz/cogarch-app</a> (IBM Internal)</sub>
 </p>
 
 > Cognitive Architect allows one to create an architecture from scratch or start from an existing reusable reference asset.

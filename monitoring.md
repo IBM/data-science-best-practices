@@ -22,6 +22,7 @@
 - [Chapter 18 - Scaling (Scalability)](./scaling.md#chapter-18---scaling)
 - [Chapter 19 - Sizing (Scalability)](./sizing.md#chapter-19---sizing)
 - [Chapter 20 - Security (Engineer)](./security.md#chapter-20---security)
+- [Chapter 21 - Usage Recommendations (Scalability)](./recommendation.md#chapter-21---usage-recommendations)
 - [License & Contributing](./license.md)
 
 ## Chapter 16 - Monitoring

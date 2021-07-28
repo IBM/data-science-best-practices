@@ -122,7 +122,9 @@ For more details on this topic:
 
 ### A primer on RedHat OpenShift Architecture
 
-RedHat OpenShift is an open source container application platform that runs on Red Hat Enterprise Linux CoreOS (RHCOS) and is built on top of Kubernetes. It takes care of integrated scaling, monitoring, logging, and metering functions. With OpenShift, you can do anything that you can do on Kubernetes and much more with OpenShift-specific features. In a way you can think of OpenShift as a Kubernetes distribution in the same way that Anaconda for example is a python distribution.
+RedHat OpenShift (RHOS) is an open source container application platform that runs on Red Hat Enterprise Linux CoreOS (RHCOS) and is built on top of Kubernetes. It takes care of integrated scaling, monitoring, logging, and metering functions. With OpenShift, you can do anything that you can do on Kubernetes and much more with OpenShift-specific features. In a way you can think of OpenShift as a Kubernetes distribution in the same way that Anaconda for example is a python distribution.
+
+> And how does RHOS fit in the Hybrid Cloud story? - This is arguably the biggest strength of RHOS, it can run on prem and on any cloud (Azure, AWS, GCP, etc) meaning that you can move workloads in multicloud environments. An application running on RHOS will run the same regardless of if it is running on Azure or AWS or on prem or anywhere where you can install and run RHOS. This is something you cannot do with native cloud services, you cannot move a native pure Azure application into AWS. Obviously this is not applicable in every case but when you have environments that mix on-prem and public cloud RHOS is a very natural.
 
 You can find almost everything about the technical aspects of OpenShift through their documentation [HERE](https://docs.openshift.com)
 

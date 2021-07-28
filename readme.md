@@ -28,17 +28,11 @@
 ## Chapter 1 - Introduction
 
 <p align="center">
-  <a href="https://www.youtube.com/embed/auhHVlhNPqI?start=5&end=44&version=3">
-    <img src="https://media.giphy.com/media/dRAaE1yjLsogg/giphy.gif" alt="Harry Potter and the Philosopher's Stone - Potion Class">
+  <a href="https://xkcd.com/1838/">
+    <img src="https://imgs.xkcd.com/comics/machine_learning.png">
   </a><br/>
-  <sub>&copy; Warner Bros.</sub>
+  <sub>"<a href="https://xkcd.com/1838/">Machine Learning</a>" by Randall Munroe is licensed under <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC BY-NC 2.5</a>. </sub>
 </p>
-
-> You are here to learn the subtle science and exact art of Software Engineering.
-> As there aren't any Python Notebooks here, many of you will hardly believe this is Data Science.
-> I don't expect you will really understand the beauty of clean code with its self-explaining structure, the delicate power of deployments that push your work to production automatically, bewitching the minds of your team members, delighting your clients...
->I can teach you how to write stable code, maintain it for years to come, even scale it to infinity.<br/>
-> <p style="text-align: right;"><sup> &dash; Severus Snape, Software Engineer in disguise</sup></p>
 
 The goal of this document is to enable you as a data scientist to develop a data science use case in a semi-professional setting to make it ready for production use. This means focusing on the versioning, scalability, monitoring and engineering of the solution.
 

@@ -120,6 +120,30 @@ For more details on this topic:
 - [IBM Architecture Center Micro Services - https://www.ibm.com/cloud/garage/architectures/microservices/overview](https://www.ibm.com/cloud/garage/architectures/microservices/overview)
 - [The Twelve Factor App - https://12factor.net/](https://12factor.net/)
 
+### A primer on RedHat OpenShift Architecture
+
+RedHat OpenShift is an open source container application platform that runs on Red Hat Enterprise Linux CoreOS (RHCOS) and is built on top of Kubernetes. It takes care of integrated scaling, monitoring, logging, and metering functions. With OpenShift, you can do anything that you can do on Kubernetes and much more with OpenShift-specific features. In a way you can think of OpenShift as a Kubernetes distribution in the same way that Anaconda for example is a python distribution.
+
+You can find almost everything about the technical aspects of OpenShift through their documentation [HERE](https://docs.openshift.com)
+
+To make the most of OpenShift, it helps to understand its architecture. OpenShift consists of the following layers and components, and each component has its own responsibilities:
+
+- **Infrastructure layer**: In the infrastructure layer, you can host your applications on physical servers, virtual servers, or even on the cloud (private/public).
+- **Service layer**:The service layer is responsible for defining pods and access policy. There are mainly two types of nodes in an OpenShift cluster: main nodes and worker nodes. Applications reside in the worker nodes. You can have multiple worker nodes in the cluster; the worker nodes are where all your coding adventures happen, and they can be virtual or physical.
+- **Main node**:The Main node is responsible for managing the cluster, and it takes care of the worker nodes. It is responsible for four main tasks:
+  - API and authentication
+  - Data Store
+  - Scheduler
+  - Health/scaling
+- **Worker nodes**: The worker node is made of pods. A pod is the smallest unit that can be defined, deployed, and managed, and it can contain one or more containers. These containers include your applications and their dependencies.
+- **Registry**: The registry saves your images locally in the cluster. When a new image is pushed to the registry, it notifies OpenShift and passes image information.
+- **Persistent storage**:Persistent storage is where all of your data is saved and connected to containers.
+- **Routing layer**: It provides external access to the applications in the cluster from any device. It also provides load balancing and auto-routing around unhealthy pods.
+
+The Diagram below shows how these different layers are organized and how they fit on an overall architecture picture
+
+![RHOS Architecture Diagram](./res/img/Openshift.png)
+
 ### Deployment Architecture - Pipelines
 
 ![Machine Learning Pipeline overview](./res/img/Machine_Learning_Pipeline.png)

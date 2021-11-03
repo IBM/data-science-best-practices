@@ -1,31 +1,13 @@
+---
+layout: default
+title: Architecture
+nav_order: 3
+has_children: true
+has_toc: false
+---
 # Data Science - Best Practices &middot; [![License](https://img.shields.io/badge/license-CC%20BY%204.0-blue)](./LICENSE.txt)
 
-## Table of Content
-
-- [Chapter 1 - Introduction](./readme.md#chapter-1---introduction)
-- [Chapter 2 - Project Team (Design)](./project_team.md#chapter-2---project-team)
-- [Chapter 3 - Architecture (Deploy)](./architecture.md#chapter-3---architecture)
-- [Chapter 4 - Source Code (Engineer)](./source_code.md#chapter-4---source-code)
-- [Chapter 5 - Documentation (Engineer)](./documentation.md#chapter-5---documentation)
-- [Chapter 6 - Versioning (Engineer)](./versioning.md#chapter-6---versioning)
-- [Chapter 7 - Data Management (Engineer)](./data_management.md#chapter-7---data-management)
-- [Chapter 8 - Dependency Management (Engineer)](./dependency_management.md#chapter-8---dependency-management)
-- [Chapter 9 - Configuration Management (Engineer)](./configuration_management.md#chapter-9---configuration-management)
-- [Chapter 10 - Testing (Engineer)](./testing.md#chapter-10---testing)
-- [Chapter 11 - Quality Measurements (Monitor)](./quality_measurements.md#chapter-11---quality-measurements)
-- [Chapter 12 - Model Training (Engineer)](./model_training.md#chapter-12---model-training)
-- [Chapter 13 - Distribution (Deploy)](./distribution.md#chapter-13---distribution)
-- [Chapter 14 - Cloud-Deployment (Deploy)](./cloud_deployment.md#chapter-14---cloud-deployment)
-- [Chapter 15 - Edge Deployment (Deploy)](./edge_deployment.md#chapter-15---edge-deployment)
-- [Chapter 16 - Monitoring (Monitor)](./monitoring.md#chapter-16---monitoring)
-- [Chapter 17 - Automation (Scalability)](./automation.md#chapter-17---automation)
-- [Chapter 18 - Scaling (Scalability)](./scaling.md#chapter-18---scaling)
-- [Chapter 19 - Sizing (Scalability)](./sizing.md#chapter-19---sizing)
-- [Chapter 20 - Security (Engineer)](./security.md#chapter-20---security)
-- [Chapter 21 - Usage Recommendations (Scalability)](./recommendation.md#chapter-21---usage-recommendations)
-- [License & Contributing](./license.md)
-
-## Chapter 3 - Architecture
+## Architecture
 
 Architecture  - more specifically IT architecture - describes the components that together form the solution. 
 It describes what these components do and how they interact with each other.
@@ -456,7 +438,8 @@ The tool follows IBM's repeatable and consistent approach to developing IT archi
 
 For larger projects dedicated architecture software is preferred, e.g. IBM Rational Software Architect. In general: IBM IT Architect Assistant is preferred over documenting architecture in Microsoft PowerPoint!
 
-For more details and to download the tool refer to the links below: 
+For more details and to download the tool refer to the links below:
+
 - [IBM IT Architect Assistant](https://www.ibm.com/cloud/architecture/architectures/edit/architect-assistant)
 - [Download](https://www.ibm.com/cloud/architecture/download-architect-assistant) the IBM Architect Assistant, Community Edition
 - [Installation Guide](https://github.com/IBM/itaa-docs/blob/master/docs/community-edition/Install.md)

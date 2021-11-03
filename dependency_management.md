@@ -1,37 +1,18 @@
+---
+layout: default
+title: Dependency Management
+nav_order: 8
+---
 # Data Science - Best Practices &middot; [![License](https://img.shields.io/badge/license-CC%20BY%204.0-blue)](./LICENSE.txt)
 
-## Table of Content
-
-- [Chapter 1 - Introduction](./readme.md#chapter-1---introduction)
-- [Chapter 2 - Project Team (Design)](./project_team.md#chapter-2---project-team)
-- [Chapter 3 - Architecture (Deploy)](./architecture.md#chapter-3---architecture)
-- [Chapter 4 - Source Code (Engineer)](./source_code.md#chapter-4---source-code)
-- [Chapter 5 - Documentation (Engineer)](./documentation.md#chapter-5---documentation)
-- [Chapter 6 - Versioning (Engineer)](./versioning.md#chapter-6---versioning)
-- [Chapter 7 - Data Management (Engineer)](./data_management.md#chapter-7---data-management)
-- [Chapter 8 - Dependency Management (Engineer)](./dependency_management.md#chapter-8---dependency-management)
-- [Chapter 9 - Configuration Management (Engineer)](./configuration_management.md#chapter-9---configuration-management)
-- [Chapter 10 - Testing (Engineer)](./testing.md#chapter-10---testing)
-- [Chapter 11 - Quality Measurements (Monitor)](./quality_measurements.md#chapter-11---quality-measurements)
-- [Chapter 12 - Model Training (Engineer)](./model_training.md#chapter-12---model-training)
-- [Chapter 13 - Distribution (Deploy)](./distribution.md#chapter-13---distribution)
-- [Chapter 14 - Cloud-Deployment (Deploy)](./cloud_deployment.md#chapter-14---cloud-deployment)
-- [Chapter 15 - Edge Deployment (Deploy)](./edge_deployment.md#chapter-15---edge-deployment)
-- [Chapter 16 - Monitoring (Monitor)](./monitoring.md#chapter-16---monitoring)
-- [Chapter 17 - Automation (Scalability)](./automation.md#chapter-17---automation)
-- [Chapter 18 - Scaling (Scalability)](./scaling.md#chapter-18---scaling)
-- [Chapter 19 - Sizing (Scalability)](./sizing.md#chapter-19---sizing)
-- [Chapter 20 - Security (Engineer)](./security.md#chapter-20---security)
-- [Chapter 21 - Usage Recommendations (Scalability)](./recommendation.md#chapter-21---usage-recommendations)
-- [License & Contributing](./license.md)
-
-
-## Chapter 8 - Dependency Management
+## Dependency Management
 
 ### Why do we need to manage dependencies?
+
 Dependency management is like your city’s sewage system. When it’s working well, it’s easy to forget that it even exists. The only time you’ll remember it is when you experience the agony induced by its failure.
 
 Some of the goals that a healthy dependency management process tries to achieve are:
+
 - Builds should be stable across environments. If a project builds on my machine, it should build on others’ machines and on our build server.
 - Builds should be stable over time. If a project builds now, it shouldn’t break in the future.
 - Any team member should be able to easily download, build, and make changes to a project.
@@ -41,7 +22,8 @@ Some of the goals that a healthy dependency management process tries to achieve 
 `pip` is a package manager for Python. That means it’s a tool that allows you to install and manage additional libraries and dependencies that are not distributed as part of the standard library. 
 
 The Python installer installs `pip`, so it should be ready for you to use, unless you installed an old version of Python. You can verify that pip is available by running the following command in your console:
-```
+
+```shell
 $ pip --version
 pip 19.2.3 from /Users/vladzamfirescu/opt/anaconda3/lib/python3.7/site-packages/pip (python 3.7)
 ```
@@ -52,16 +34,17 @@ For example, just run `pip install numpy` to install `numpy` **and its dependenc
 
 Not only does `pip` let you install normal source packages, but it can also install packages from source control repositories, [wheels](https://wheel.readthedocs.io/en/latest/), and legacy binary distribution formats.
 
-### Using `requirements.txt`  
+### Using `requirements.txt`
+
 When developing Python applications today, it’s standard practice to have a `requirements.txt` file in the root of your repository.
 
 It’s easy to get a Python project off the ground by just using `pip` to install dependent packages as you go. This works fine as long as you’re the only one working on the project, but as soon as someone else wants to run your code, they’ll need to go through the process of figuring which dependencies the project needs and installing them all by hand. Worse yet, if they install a different version of a dependency than the one you used, they could end up with some very mysterious errors.
 
-To prevent this, you can define a `requirements.txt` file that records all of your project’s dependencies, versions included. This way, others can run `pip install -r requirements.txt` and all the project’s dependencies will be installed automatically. 
+To prevent this, you can define a `requirements.txt` file that records all of your project’s dependencies, versions included. This way, others can run `pip install -r requirements.txt` and all the project’s dependencies will be installed automatically.
 
 Placing this file into version control alongside the source code makes it easy for others to use and edit it. In order to ensure complete reproducibility, your `requirements.txt` file should include all of your project’s transitive (indirect) dependencies, not just your direct dependencies.
 
-```
+```shell
 $ cat requirements.txt
 
 numpy
@@ -76,7 +59,7 @@ This is an example of a basic `requirements.txt` file, and is effectively the us
 
 To avoid the pitfalls of a basic `requirements.txt` file, you can define a complete list of all dependencies a project has, each with exact package versions specified.
 
-```
+```shell
 $ cat requirements.txt
 
 numpy==1.18.1
@@ -84,6 +67,7 @@ pandas==1.0.0
 pytest==5.3.5
 wheel==0.32.2
 ```
+
 This is considered a best practice for deploying applications, and ensures an explicit runtime environment with deterministic builds.
 
 All dependencies, including sub-dependencies, are listed, each with an exact version specified.
@@ -174,38 +158,45 @@ General Recommendations & Version Control (pipenv)
 
 ### Organisation-wide Open Source Software (OSS) Guidelines
 
-#### :warning: IMPORTANT :warning: Please note that OSS usage (both internal or external) including consumption and contribution must comply with licensing, copywright law and your organization's internal guidelines.
+**:warning: IMPORTANT :warning: Please note that OSS usage (both internal or external) including consumption and contribution must comply with licensing, copywright law and your organization's internal guidelines.**
+
 Copyright law gives authors rights, such as:
-  * The author determines appropriate uses of a work.
-  * You cannot reproduce or modify a work without an author's permission.
-  * The author may grant permission via a license, for example, an open source license.
-  	* A license grants permission, but may also impose obligations.
+
+- The author determines appropriate uses of a work.
+- You cannot reproduce or modify a work without an author's permission.
+- The author may grant permission via a license, for example, an open source license.
+  - A license grants permission, but may also impose obligations.
   
-  #### _It is mandatory for IBMers to adhere to the [IBM OSS Guidelines and associated processes](https://github.ibm.com/datascience-ibm/data-science-best-practices/blob/master/ibm_oss_guideline.md) (IBM Internal)_.
+#### _It is mandatory for IBMers to adhere to the [IBM OSS Guidelines and associated processes](https://github.ibm.com/datascience-ibm/data-science-best-practices/blob/master/ibm_oss_guideline.md) (IBM Internal)_.
 
 #### MIT
+
 A short, permissive software license. Basically, you can do whatever you want as long as you include the original copyright and license notice in any copy of the software/source.  There are many variations of this license in use.
 
 [MIT License Full Text](https://opensource.org/licenses/MIT)
 
 #### Apache 2.0
+
 You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.
 
 [Apache 2.0 License Full Text](https://opensource.org/licenses/Apache-2.0)
 
 #### BSD
+
 The BSD 2-Clause and BSD 3-Clause licenses allows you almost unlimited freedom with the software so long as you include the BSD copyright notice in it (found in full text reference below).
 
 [BSD-2-Clause Full Text](https://opensource.org/licenses/BSD-2-Clause)  
 [BSD-3-Clause Full Text](https://opensource.org/licenses/BSD-3-Clause)
 
 #### GPL
+
 You may copy, distribute and modify the software as long as you track changes/dates in source files. Any modifications to or software including (via compiler) GPL-licensed code must also be made available under the GPL along with build & install instructions.
 
 [GPL 2.0 Full Text](https://opensource.org/licenses/GPL-2.0)  
 [GPL 3.0 Full Text](https://opensource.org/licenses/GPL-3.0)
 
 #### LGPL
+
 This license is mainly applied to libraries. You may copy, distribute and modify the software provided that modifications are described and licensed for free under LGPL. Derivatives works (including modifications or anything statically linked to the library) can only be redistributed under LGPL, but applications that use the library don't have to be.
 
 [LGPL 2.0 Full Text](https://opensource.org/licenses/LGPL-2.0)  
@@ -220,7 +211,8 @@ In this example implementation `pipenv` is used.
 As described above the two relevant files are `Pipfile` and `Pipfile.lock`. Both of these are located in the root folder of the example implementation.
 
 `Pipfile:`
-```
+
+```plaintext
 ...
 
 mypy = "==0.761"
@@ -246,7 +238,7 @@ This is added to offer cross-platform compatibility.
 
 `Pipfile.lock`
 
-```
+```json
 
     "_meta": {
         "hash": {
@@ -275,9 +267,10 @@ This is added to offer cross-platform compatibility.
 ```
 
 As described above, this file contains the specific versions of the required packages and the corresponding hash.
-This dependency tree is built recursively and satisfies all transitive dependencies. 
+This dependency tree is built recursively and satisfies all transitive dependencies.
 In the `makefile` the pip environment is created with the specific `pipenv` command:
-```
+
+```make
 ...
 
 install:
@@ -285,4 +278,5 @@ install:
 
 ...
 ```
+
 This installs both dev and default packages and aborts if the `Pipfile.lock` is out of date.

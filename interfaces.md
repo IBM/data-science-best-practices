@@ -1,29 +1,10 @@
+---
+layout: default
+title: Interfaces
+parent: Architecture
+nav_order: 1
+---
 # Data Science - Best Practices &middot; [![License](https://img.shields.io/badge/license-CC%20BY%204.0-blue)](./LICENSE.txt)
-
-## Table of Content
-
-- [Chapter 1 - Introduction](./readme.md#chapter-1---introduction)
-- [Chapter 2 - Project Team (Design)](./project_team.md#chapter-2---project-team)
-- [Chapter 3 - Architecture (Deploy)](./architecture.md#chapter-3---architecture)
-- [Chapter 4 - Source Code (Engineer)](./source_code.md#chapter-4---source-code)
-- [Chapter 5 - Documentation (Engineer)](./documentation.md#chapter-5---documentation)
-- [Chapter 6 - Versioning (Engineer)](./versioning.md#chapter-6---versioning)
-- [Chapter 7 - Data Management (Engineer)](./data_management.md#chapter-7---data-management)
-- [Chapter 8 - Dependency Management (Engineer)](./dependency_management.md#chapter-8---dependency-management)
-- [Chapter 9 - Configuration Management (Engineer)](./configuration_management.md#chapter-9---configuration-management)
-- [Chapter 10 - Testing (Engineer)](./testing.md#chapter-10---testing)
-- [Chapter 11 - Quality Measurements (Monitor)](./quality_measurements.md#chapter-11---quality-measurements)
-- [Chapter 12 - Model Training (Engineer)](./model_training.md#chapter-12---model-training)
-- [Chapter 13 - Distribution (Deploy)](./distribution.md#chapter-13---distribution)
-- [Chapter 14 - Cloud-Deployment (Deploy)](./cloud_deployment.md#chapter-14---cloud-deployment)
-- [Chapter 15 - Edge Deployment (Deploy)](./edge_deployment.md#chapter-15---edge-deployment)
-- [Chapter 16 - Monitoring (Monitor)](./monitoring.md#chapter-16---monitoring)
-- [Chapter 17 - Automation (Scalability)](./automation.md#chapter-17---automation)
-- [Chapter 18 - Scaling (Scalability)](./scaling.md#chapter-18---scaling)
-- [Chapter 19 - Sizing (Scalability)](./sizing.md#chapter-19---sizing)
-- [Chapter 20 - Security (Engineer)](./security.md#chapter-20---security)
-- [Chapter 21 - Usage Recommendations (Scalability)](./recommendation.md#chapter-21---usage-recommendations)
-- [License & Contributing](./license.md)
 
 ## Interfaces
 
@@ -38,15 +19,15 @@ Representational state transfer (REST) is a software architectural style that de
 - REST is resource-oriented, resources are represented by an URI: /digitization/.
 - An endpoint is the combination of a method and an URI, e.g. GET: /documents/.
 - An endpoint can be interpreted as an action on a resource. For example, POST: /documents/ may mean "Create a new document".
-- At a high-level, methods map to CRUD operations: 
+- At a high-level, methods map to CRUD operations:
   
 |   Method      | Description   |
 | ------------- | ------------- |
-|   GET 	      |  Used to retrieve a representation of a resource.|
-|   POST 	      |  Used to create new new resources and sub-resources.|
-|   PUT 	      |  Used to update existing resources.|
-|   PATCH 	    |  Used to update existing resources.|
-|   DELETE 	    |  Used to delete existing resources.|
+|   GET         |  Used to retrieve a representation of a resource.|
+|   POST        |  Used to create new new resources and sub-resources.|
+|   PUT         |  Used to update existing resources.|
+|   PATCH       |  Used to update existing resources.|
+|   DELETE      |  Used to delete existing resources.|
 
 - A response's status is specified by its status code: 1xx for information, 2xx for success, 3xx for redirection, 4xx for client errors and 5xx for server errors.
 
@@ -93,14 +74,13 @@ Based on the client’s and server’s ability to work with the formats, you can
        <doctype>Invoice</doctype> 
     </document> 
 
-
 #### Use plural resource nouns
 
 It may be hard to decide whether or not you should use the plural or singular form for resource nouns.
 
 Should you use /document/:id/ (singular) or /documents/:id/ (plural)?
 
-It is recommended to use the plural form because it fits all types of endpoints. When performing a GET on /document/ the answer could be a only a single one or all documents. 
+It is recommended to use the plural form because it fits all types of endpoints. When performing a GET on /document/ the answer could be a only a single one or all documents.
 To prevent this kind of ambiguity, the plural should be used everywhere.
 
     GET: /documents/:id/
@@ -154,11 +134,11 @@ This is extremely un-RESTful. Make use of the status code and only use the respo
 
 #### Use status codes consistently
 
-Status codes should be used consistently. For example, if a POST endpoint returns a 201 Created somewhere, the same status code for every POST endpoint should be used. 
+Status codes should be used consistently. For example, if a POST endpoint returns a 201 Created somewhere, the same status code for every POST endpoint should be used.
 
 #### Don't nest resources
 
-REST APIs deal with resources, and retrieving a list or a single instance of a resource is straight forward. 
+REST APIs deal with resources, and retrieving a list or a single instance of a resource is straight forward.
 
 But what happens when dealing with related resources? Let's view the retrieval of the list of documents for a particular user. There are basically two options.
 

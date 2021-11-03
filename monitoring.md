@@ -1,31 +1,11 @@
+---
+layout: default
+title: Monitoring
+nav_order: 16
+---
 # Data Science - Best Practices &middot; [![License](https://img.shields.io/badge/license-CC%20BY%204.0-blue)](./LICENSE.txt)
 
-## Table of Content
-
-- [Chapter 1 - Introduction](./readme.md#chapter-1---introduction)
-- [Chapter 2 - Project Team (Design)](./project_team.md#chapter-2---project-team)
-- [Chapter 3 - Architecture (Deploy)](./architecture.md#chapter-3---architecture)
-- [Chapter 4 - Source Code (Engineer)](./source_code.md#chapter-4---source-code)
-- [Chapter 5 - Documentation (Engineer)](./documentation.md#chapter-5---documentation)
-- [Chapter 6 - Versioning (Engineer)](./versioning.md#chapter-6---versioning)
-- [Chapter 7 - Data Management (Engineer)](./data_management.md#chapter-7---data-management)
-- [Chapter 8 - Dependency Management (Engineer)](./dependency_management.md#chapter-8---dependency-management)
-- [Chapter 9 - Configuration Management (Engineer)](./configuration_management.md#chapter-9---configuration-management)
-- [Chapter 10 - Testing (Engineer)](./testing.md#chapter-10---testing)
-- [Chapter 11 - Quality Measurements (Monitor)](./quality_measurements.md#chapter-11---quality-measurements)
-- [Chapter 12 - Model Training (Engineer)](./model_training.md#chapter-12---model-training)
-- [Chapter 13 - Distribution (Deploy)](./distribution.md#chapter-13---distribution)
-- [Chapter 14 - Cloud-Deployment (Deploy)](./cloud_deployment.md#chapter-14---cloud-deployment)
-- [Chapter 15 - Edge Deployment (Deploy)](./edge_deployment.md#chapter-15---edge-deployment)
-- [Chapter 16 - Monitoring (Monitor)](./monitoring.md#chapter-16---monitoring)
-- [Chapter 17 - Automation (Scalability)](./automation.md#chapter-17---automation)
-- [Chapter 18 - Scaling (Scalability)](./scaling.md#chapter-18---scaling)
-- [Chapter 19 - Sizing (Scalability)](./sizing.md#chapter-19---sizing)
-- [Chapter 20 - Security (Engineer)](./security.md#chapter-20---security)
-- [Chapter 21 - Usage Recommendations (Scalability)](./recommendation.md#chapter-21---usage-recommendations)
-- [License & Contributing](./license.md)
-
-## Chapter 16 - Monitoring
+## Monitoring
 
 - Application Monitoring
   - Log Monitoring
@@ -62,7 +42,7 @@ Concept drift in machine learning and data mining refers to the change in the re
   <sub>&copy; 20th Century Fox</sub>
 </p>
 
-Concept drift is very common in productive systems, e.g. sensors wearing out over time, productions layouts changing or the predictions we are issuing changing the environment itself; For instance, imagine a predictive policing model indicating the neighborhoods in a city with the most criminal activities. The local police will accordingly reinforce their presence in this area which results in a decreasing criminal statistic over time. This development, however, will invalidate the recommendations of the predictive service which continues to classify this neighborhood as a high-risk area. 
+Concept drift is very common in productive systems, e.g. sensors wearing out over time, productions layouts changing or the predictions we are issuing changing the environment itself; For instance, imagine a predictive policing model indicating the neighborhoods in a city with the most criminal activities. The local police will accordingly reinforce their presence in this area which results in a decreasing criminal statistic over time. This development, however, will invalidate the recommendations of the predictive service which continues to classify this neighborhood as a high-risk area.
 
 > One of the main objectives of model monitoring is to inform your (re) training strategy. If your performance is smoothly dropping every month then it might be an indication that the underlying process you are trying to model is changing faster than the model is able to capture it.
 
@@ -86,24 +66,24 @@ Once we have identified concept drift, different handling schemes may be require
   - Baseline Performance. Use the skill of the static model as a baseline to compare to any intervention you make.
 
 - **Periodically Re-Fit** A good first-level intervention is to periodically update your static model with more recent historical data. For example, perhaps you can update the model each month or each year with the data collected from the prior period. This may also involve back-testing the model in order to select a suitable amount of historical data to include when re-fitting the static model. In some cases, it may be appropriate to only include a small portion of the most recent historical data to best capture the new relationships between inputs and outputs (e.g. the use of a sliding window).
- 
+
 - **Periodically Update** Some machine learning models can be updated. This is an efficiency over the previous approach (periodically re-fit) where instead of discarding the static model completely, the existing state is used as the starting point for a fit process that updates the model fit using a sample of the most recent historical data. For example, this approach is suitable for most machine learning algorithms that use weights or coefficients such as regression algorithms and neural networks.
 
 - **Weight Data** Some algorithms allow you to weigh the importance of input data. In this case, you can use a weighting that is inversely proportional to the age of the data such that more attention is paid to the most recent data (higher weight) and less attention is paid to the least recent data (smaller weight). This is effectively the same as monitoring the monitoring of your feature importance metrics.
 
 - **Learn The Change** An ensemble approach can be used where the static model is left untouched, but a new model learns to correct the predictions from the static model based on the relationships in more recent data. This may be thought of as a boosting type ensemble (in spirit only) where subsequent models correct the predictions from prior models. The key difference here is that subsequent models are fit on different and more recent data, as opposed to a weighted form of the same dataset, as in the case of AdaBoost and gradient boosting.
- 
+
 - **Detect and Choose Model** For some problem domains it may be possible to design systems to detect changes and choose a specific and different model to make predictions. This may be appropriate for domains that expect abrupt changes that may have occurred in the past and can be checked for in the future. It also assumes that it is possible to develop skillful models to handle each of the detectable changes to the data. For example, the abrupt change may be a specific observation or observations in a range, or the change in the distribution of one or more input variables.
 
 However, all these methods require that you gain true labels within the productive environment. If this is not the case, more advanced methods are necessary, e.g. a precise monitoring of the input data.
 
-#### Model Bias and Fairness 
+#### Model Bias and Fairness
 
-A simple answer to the presence of bias is that it’s a result of the data, but the origins are more subtle and related to the source of data, the contents of the data (does it include elements that the model should be ignorant of?), and the training of the model itself (for example, how do we define good and bad in the context of a model’s classification). The more common types of bias are presented next: 
+A simple answer to the presence of bias is that it’s a result of the data, but the origins are more subtle and related to the source of data, the contents of the data (does it include elements that the model should be ignorant of?), and the training of the model itself (for example, how do we define good and bad in the context of a model’s classification). The more common types of bias are presented next:
 
-- **Sample Bias** A data set might not represent the problem space (such as training an autonomous vehicle with only daytime data). 
-- **Prejudicial Bias** A data set can also incorporate data that might not be valid to consider (for example, a person’s race or gender). 
-- **Exclusion bias** This occurs when we remove features that we think are not relevant. 
+- **Sample Bias** A data set might not represent the problem space (such as training an autonomous vehicle with only daytime data).
+- **Prejudicial Bias** A data set can also incorporate data that might not be valid to consider (for example, a person’s race or gender).
+- **Exclusion bias** This occurs when we remove features that we think are not relevant.
 - **Measurement bias** Occurs when the data collected for training differs from the data collected during production. This can occur when your data set is collected with a specific type of camera, but your production data comes from a camera with different characteristics.
 - **Algorithmic bias** Which stems not from the data that a model was trained from but from the machine learning model itself. This includes how the model was developed or how the model was trained that results in unfair outcomes.
 
@@ -111,7 +91,7 @@ IBM has developed the [AI Fairness 360](https://github.com/IBM/AIF360) Toolkit t
 
 Furthermore, IBM researchers have also proposed a bias rating system for machine learning models in [Towards Composable Bias Rating of AI Services.](https://arxiv.org/pdf/1808.00089.pdf) This envisions a third-party rating system for the validation of machine learning models for bias.
 
-#### Model Interpretability / Explainability 
+#### Model Interpretability / Explainability
 
 The need for interpretability arises from an incompleteness in problem formalization, which means that for certain problems or tasks it is not enough to get the prediction (the what). The model must also explain how it came to the prediction (the why), because a correct prediction only partially solves your original problem.
 
@@ -153,10 +133,9 @@ plt.show()
 
 - **SHAP Values** SHAP which stands for SHapley Additive exPlanation, helps to break down a prediction to show the impact of each feature. It is based on Shapley values, a technique used in game theory to determine how much each player in a collaborative game has contributed to its success. Normally, getting the trade-off between accuracy and interpretability just right can be a difficult balancing act but SHAP values can deliver both. You can use the python library [SHAP](https://github.com/slundberg/shap) to start working with SHAP values.
 
-Furthermore, like with Bias and Fairness IBM has buit a toolkit called [AI Explainability 360](https://github.com/IBM/AIX360) which is an open-source library that supports interpretability and explainability of datasets and machine learning models. The AI Explainability 360 Python package includes a comprehensive set of algorithms that cover different dimensions of explanations along with proxy explainability metrics. 
+Furthermore, like with Bias and Fairness IBM has buit a toolkit called [AI Explainability 360](https://github.com/IBM/AIX360) which is an open-source library that supports interpretability and explainability of datasets and machine learning models. The AI Explainability 360 Python package includes a comprehensive set of algorithms that cover different dimensions of explanations along with proxy explainability metrics.
 
 Another great open source catalogue of explainability related methods and frameworks can be found [here](https://github.com/EthicalML/awesome-production-machine-learning)
-
 
 ### Notification Systems
 
@@ -166,11 +145,13 @@ To find examples for these guidelines, go to the example repository: [MLOps pipe
 
 In this implementation all the relevant metrics are pushed to AWS S3 from where they can be accessed.
 In the makefile the test coverage results are copied to a S3 bucket:
-```
+
+```make
 upload.monitoring: test
 	pipenv run aws s3 cp ./build/unittest-coverage.json s3://machine-learning-metrics/trainer/unittest-coverage/unittest-coverage-$(version).json
 	pipenv run aws s3 cp ./build/test-coverage.json s3://machine-learning-metrics/trainer/test-coverage/test-coverage-$(version).json
 ```
+
 From this bucket, the results can be accessed via a SaaS: AWS QuickSight. The tool is a reporting solution, which can directly access JSON files from AWS S3.
 As the coverage files are pushed for every build and a specific version, they can be viewed over time and version in the report.
 AWS QuickSight offers multiple standard reports, that visualize the input.  

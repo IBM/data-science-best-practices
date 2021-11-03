@@ -1,31 +1,11 @@
+---
+layout: default
+title: Scaling
+nav_order: 18
+---
 # Data Science - Best Practices &middot; [![License](https://img.shields.io/badge/license-CC%20BY%204.0-blue)](./LICENSE.txt)
 
-## Table of Content
-
-- [Chapter 1 - Introduction](./readme.md#chapter-1---introduction)
-- [Chapter 2 - Project Team (Design)](./project_team.md#chapter-2---project-team)
-- [Chapter 3 - Architecture (Deploy)](./architecture.md#chapter-3---architecture)
-- [Chapter 4 - Source Code (Engineer)](./source_code.md#chapter-4---source-code)
-- [Chapter 5 - Documentation (Engineer)](./documentation.md#chapter-5---documentation)
-- [Chapter 6 - Versioning (Engineer)](./versioning.md#chapter-6---versioning)
-- [Chapter 7 - Data Management (Engineer)](./data_management.md#chapter-7---data-management)
-- [Chapter 8 - Dependency Management (Engineer)](./dependency_management.md#chapter-8---dependency-management)
-- [Chapter 9 - Configuration Management (Engineer)](./configuration_management.md#chapter-9---configuration-management)
-- [Chapter 10 - Testing (Engineer)](./testing.md#chapter-10---testing)
-- [Chapter 11 - Quality Measurements (Monitor)](./quality_measurements.md#chapter-11---quality-measurements)
-- [Chapter 12 - Model Training (Engineer)](./model_training.md#chapter-12---model-training)
-- [Chapter 13 - Distribution (Deploy)](./distribution.md#chapter-13---distribution)
-- [Chapter 14 - Cloud-Deployment (Deploy)](./cloud_deployment.md#chapter-14---cloud-deployment)
-- [Chapter 15 - Edge Deployment (Deploy)](./edge_deployment.md#chapter-15---edge-deployment)
-- [Chapter 16 - Monitoring (Monitor)](./monitoring.md#chapter-16---monitoring)
-- [Chapter 17 - Automation (Scalability)](./automation.md#chapter-17---automation)
-- [Chapter 18 - Scaling (Scalability)](./scaling.md#chapter-18---scaling)
-- [Chapter 19 - Sizing (Scalability)](./sizing.md#chapter-19---sizing)
-- [Chapter 20 - Security (Engineer)](./security.md#chapter-20---security)
-- [Chapter 21 - Usage Recommendations (Scalability)](./recommendation.md#chapter-21---usage-recommendations)
-- [License & Contributing](./license.md)
-
-## Chapter 18 - Scaling
+## Scaling
 
 A system is considered scalable when it doesn’t need to be redesigned to maintain effective performance during or after a steep increase in workload. The workload could refer to simultaneous users, storage capacity, the maximum number of transactions handled, or anything else that pushes the system past its original capacity.
 
@@ -44,17 +24,19 @@ One way to look at it is to think of vertical scaling like retiring your Toyota 
 
 Horizontal scaling gets you that added horsepower – not by ditching the Toyota for the Ferrari, but by adding another vehicle to the mix. In fact, you can think of horizontal scaling like several vehicles you can drive all at once. Maybe none of these machines is a Ferrari, but no one of them needs to be: across the fleet, you have all the horsepower you need.
 
-> Horizontal scaling is almost always more desirable than vertical scaling because you don’t get caught in a resource deficit, or in other words, there is a harder limit to scaling up than to scaling out. Think about it, when we talk about distributed/parallel computing we are in fact, talking about horizontal scaling. 
+> Horizontal scaling is almost always more desirable than vertical scaling because you don’t get caught in a resource deficit, or in other words, there is a harder limit to scaling up than to scaling out. Think about it, when we talk about distributed/parallel computing we are in fact, talking about horizontal scaling.
 
 #### Which one to choose
 
-**When to choose Vertical scaling** 
+**When to choose Vertical scaling**
+
 - You need to overcome node-level performance limitations, i.e., store large files that cannot be split into smaller parts across different nodes or execute some computation that cannot be parallelized.
-- You need help in handling repeatedly increasing workloads. 
-- Your client has a relatively small data set. 
-- You do not expect the dataset to grow significantly over time. 
+- You need help in handling repeatedly increasing workloads.
+- Your client has a relatively small data set.
+- You do not expect the dataset to grow significantly over time.
 
 **When to choose Horizontal scaling**
+
 - The scale-up approach does not deliver the necessary level of performance
 - You need to distribute storage or analytics workload across multiple nodes
 - Your client has a lot of data (At least several Terabytes and up)
@@ -79,14 +61,13 @@ The second issue of concurrency is how many internal types of accesses will be u
 
 One way to battle concurrency was already discussed and is the use of horizontal scaling. In the next section we will explore some other ways in which we can scale while accounting for concurrency.
 
-
 ### Stateful vs. Stateless
 
 We generally talk about Stateful adn Stateless when talking about microservices. The key difference between stateful and stateless microservices is that stateless microservices don’t store data on the host, whereas stateful microservices require some kind of storage on the host who serves the requests.
 
 > Keeping the state is critical for a stateful service. On the other hand, a stateless service can work using only pieces of information available in the request payload, or can acquire the required pieces of information from a dedicated stateful service, like a database.
 
-By their definitions you might have already noticed that when our goal is to scale our application, that a Stateless architecture provides several advantages, for example, consider the previously discussed topic of concurrency. 
+By their definitions you might have already noticed that when our goal is to scale our application, that a Stateless architecture provides several advantages, for example, consider the previously discussed topic of concurrency.
 
 In a Stateful application when the volume of concurrent users grows in size, more servers run the applications added, and load distributed evenly between those servers using a load-balancer. But since each server ‘remembers’ each logged-in user’s state, it becomes necessary to configure this load balancer in ‘sticky-mode.’ While distributing load across servers, the load-balancer required to send each user’s request to the same server that responds to that user’s previous request, to process the request correctly which defeats the purpose of load balancing.
 
@@ -102,7 +83,6 @@ On the other hand, in a Stateless application, the server-side logic coded in su
 - From the user’s side, statelessness allows resources to be linkable. If a page is stateless, then when the user links a friend to that page, ensures the user to view the same as another user viewing.
 
 > Docker and Kubernetes are prime examples of tools that can help deploy and operate a Stateless application
-
 
 ### Examples
 

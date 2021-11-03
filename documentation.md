@@ -1,31 +1,11 @@
+---
+layout: default
+title: Documentation
+nav_order: 5
+---
 # Data Science - Best Practices &middot; [![License](https://img.shields.io/badge/license-CC%20BY%204.0-blue)](./LICENSE.txt)
 
-## Table of Content
-
-- [Chapter 1 - Introduction](./readme.md#chapter-1---introduction)
-- [Chapter 2 - Project Team (Design)](./project_team.md#chapter-2---project-team)
-- [Chapter 3 - Architecture (Deploy)](./architecture.md#chapter-3---architecture)
-- [Chapter 4 - Source Code (Engineer)](./source_code.md#chapter-4---source-code)
-- [Chapter 5 - Documentation (Engineer)](./documentation.md#chapter-5---documentation)
-- [Chapter 6 - Versioning (Engineer)](./versioning.md#chapter-6---versioning)
-- [Chapter 7 - Data Management (Engineer)](./data_management.md#chapter-7---data-management)
-- [Chapter 8 - Dependency Management (Engineer)](./dependency_management.md#chapter-8---dependency-management)
-- [Chapter 9 - Configuration Management (Engineer)](./configuration_management.md#chapter-9---configuration-management)
-- [Chapter 10 - Testing (Engineer)](./testing.md#chapter-10---testing)
-- [Chapter 11 - Quality Measurements (Monitor)](./quality_measurements.md#chapter-11---quality-measurements)
-- [Chapter 12 - Model Training (Engineer)](./model_training.md#chapter-12---model-training)
-- [Chapter 13 - Distribution (Deploy)](./distribution.md#chapter-13---distribution)
-- [Chapter 14 - Cloud-Deployment (Deploy)](./cloud_deployment.md#chapter-14---cloud-deployment)
-- [Chapter 15 - Edge Deployment (Deploy)](./edge_deployment.md#chapter-15---edge-deployment)
-- [Chapter 16 - Monitoring (Monitor)](./monitoring.md#chapter-16---monitoring)
-- [Chapter 17 - Automation (Scalability)](./automation.md#chapter-17---automation)
-- [Chapter 18 - Scaling (Scalability)](./scaling.md#chapter-18---scaling)
-- [Chapter 19 - Sizing (Scalability)](./sizing.md#chapter-19---sizing)
-- [Chapter 20 - Security (Engineer)](./security.md#chapter-20---security)
-- [Chapter 21 - Usage Recommendations (Scalability)](./recommendation.md#chapter-21---usage-recommendations)
-- [License & Contributing](./license.md)
-
-## Chapter 5 - Documentation
+## Documentation
 
 In general source code is read more often then written.
 This is why source code should be coded in a clear and readable way, so it becomes somewhat self-explaining (see [Source Code chapter](./source_code.md#chapter-4---source-code)).
@@ -93,6 +73,7 @@ In a project there are many different levels of documentation, e.g. for [archite
 For each source code component there should be documentation on the purpose of that component and how to use it.
 
 This is usually down in the ReadMe file (often `readme.md`).
+
 ```markdown
 # <project name>
 
@@ -125,17 +106,15 @@ To find examples for documentation refer to: [MLOps pipeline](https://github.ibm
 
 In the root folder you find the `readme.md` file, which states the purpose of this repository and some general information on the content.
 
-
 ## AI FactSheets 360
 
 AI FactSheets is a project to enable trust in AI by increasing transparency and enabling governance. This provides information to better understand, how an AI model or service was created. The consumer of the model can therefor determine if it is appropriate for their situation. AI Governance enables to specify and enforce policies how an AI model should be constructed or deployed.
 
-A FactSheet is a collection of relevant information about the creation and deployment of an AI model or service. It documents key Facts about how an AI model or service was developed, tested, deployed, monitored and modified. FactSheets get modeled after a supplier´s declaration of conformity (SDoC). They are tailored to the AI model or service that is documented and to the target audience or consumer. FactSheets capture facts from the entire AI lifecycle. 
-
+A FactSheet is a collection of relevant information about the creation and deployment of an AI model or service. It documents key Facts about how an AI model or service was developed, tested, deployed, monitored and modified. FactSheets get modeled after a supplier´s declaration of conformity (SDoC). They are tailored to the AI model or service that is documented and to the target audience or consumer. FactSheets capture facts from the entire AI lifecycle.
 
 To find more about AI FactSheets 360 refer to [IBM Research AI FactSheets 360](https://aifs360.mybluemix.net/).
 
-#### Recommended Steps for creating Fact Sheets
+### Recommended Steps for creating Fact Sheets
 
 1. Know your FactSheet consumers
 2. Know your FactSheet producers
@@ -150,5 +129,3 @@ To find more about AI FactSheets 360 refer to [IBM Research AI FactSheets 360](h
 #### Examples
 
 For FactSheet examples about an Audio Classifier, Object Detector, Image Caption Generator, Text Sentiment Classifier and Weather Forecaster refer to [FactSheets Examples](https://aifs360.mybluemix.net/examples).
-
-

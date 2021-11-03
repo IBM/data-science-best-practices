@@ -3,7 +3,7 @@ layout: default
 title: License
 nav_order: 99
 ---
-# Data Science - Best Practices &middot; [![License](https://img.shields.io/badge/license-CC%20BY%204.0-blue)](./LICENSE.txt)
+# IBM Data Science - Best Practices
 
 ## License
 
@@ -12,6 +12,8 @@ Unless otherwise specified, Data Science - Best Practices is licensed under a Cr
 You should have received a copy of the [license](./LICENSE.txt) along with this work. If not, see [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
 
 ## Contributing
+
+Our GitHub Repo: [https://github.com/IBM/data-science-best-practices]
 
 ### Contributor's Certificate of Origin
 
@@ -45,7 +47,7 @@ By making a contribution to this project, I certify that:
 
 ### Contribution Guide
 
-The recommended way to contribute to the Data Science  - Best Practices is:
+The recommended way to contribute to the Data Science - Best Practices is:
 
 1. Forking this project to your account.
 2. Creating a branch and makes changes and push to the forked project.

@@ -3,7 +3,7 @@ layout: default
 title: Documentation
 nav_order: 5
 ---
-# Data Science - Best Practices &middot; [![License](https://img.shields.io/badge/license-CC%20BY%204.0-blue)](./LICENSE.txt)
+# IBM Data Science - Best Practices
 
 ## Documentation
 

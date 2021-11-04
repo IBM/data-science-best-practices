@@ -49,3 +49,10 @@ Thumbs.db
 
 # Word temporary
 ~$*.doc*
+
+# GitHub Pages
+_site
+/.bundle
+/.sass-cache
+.jekyll-metadata
+/vendor

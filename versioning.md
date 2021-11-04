@@ -1,31 +1,11 @@
-# Data Science - Best Practices &middot; [![License](https://img.shields.io/badge/license-CC%20BY%204.0-blue)](./LICENSE.txt)
+---
+layout: default
+title: Versioning
+nav_order: 6
+---
+# IBM Data Science - Best Practices
 
-## Table of Content
-
-- [Chapter 1 - Introduction](./readme.md#chapter-1---introduction)
-- [Chapter 2 - Project Team (Design)](./project_team.md#chapter-2---project-team)
-- [Chapter 3 - Architecture (Deploy)](./architecture.md#chapter-3---architecture)
-- [Chapter 4 - Source Code (Engineer)](./source_code.md#chapter-4---source-code)
-- [Chapter 5 - Documentation (Engineer)](./documentation.md#chapter-5---documentation)
-- [Chapter 6 - Versioning (Engineer)](./versioning.md#chapter-6---versioning)
-- [Chapter 7 - Data Management (Engineer)](./data_management.md#chapter-7---data-management)
-- [Chapter 8 - Dependency Management (Engineer)](./dependency_management.md#chapter-8---dependency-management)
-- [Chapter 9 - Configuration Management (Engineer)](./configuration_management.md#chapter-9---configuration-management)
-- [Chapter 10 - Testing (Engineer)](./testing.md#chapter-10---testing)
-- [Chapter 11 - Quality Measurements (Monitor)](./quality_measurements.md#chapter-11---quality-measurements)
-- [Chapter 12 - Model Training (Engineer)](./model_training.md#chapter-12---model-training)
-- [Chapter 13 - Distribution (Deploy)](./distribution.md#chapter-13---distribution)
-- [Chapter 14 - Cloud-Deployment (Deploy)](./cloud_deployment.md#chapter-14---cloud-deployment)
-- [Chapter 15 - Edge Deployment (Deploy)](./edge_deployment.md#chapter-15---edge-deployment)
-- [Chapter 16 - Monitoring (Monitor)](./monitoring.md#chapter-16---monitoring)
-- [Chapter 17 - Automation (Scalability)](./automation.md#chapter-17---automation)
-- [Chapter 18 - Scaling (Scalability)](./scaling.md#chapter-18---scaling)
-- [Chapter 19 - Sizing (Scalability)](./sizing.md#chapter-19---sizing)
-- [Chapter 20 - Security (Engineer)](./security.md#chapter-20---security)
-- [Chapter 21 - Usage Recommendations (Scalability)](./recommendation.md#chapter-21---usage-recommendations)
-- [License & Contributing](./license.md)
-
-## Chapter 6 - Versioning
+## Versioning
 
 When it comes to machine learning applications, the central artifact is usually a compiled model, which can be very large, and which has no notion of anything resembling a service architecture, dependencies, or anything else. It is essentially a ball of logic with inputs and outputs. Encoded within this artifact are several assumptions: it inherits the shape, support, and type of the dataset that trains it; it inherits the distribution function of the dataset that trains it ; and it often relies on the code or the frameworks that created it.
 
@@ -132,7 +112,7 @@ Switches to the given existing branch.
 View this tutorial to get started with GitHub.
 [Getting started with GitHub](https://docs.github.com/en/enterprise/2.20/user/github/getting-started-with-github)
 
-To connect with IBM GitHub Enterprise, you need to generate a SSH key and add it to the local ssh-agent. Be aware that if you enter a passphrase when generating the SSH Key, the passphrase has to be entered every time interacting with the remote repositories. After this, you have to add the new SSH key to your GitHub account. 
+To connect with IBM GitHub Enterprise, you need to generate a SSH key and add it to the local ssh-agent. Be aware that if you enter a passphrase when generating the SSH Key, the passphrase has to be entered every time interacting with the remote repositories. After this, you have to add the new SSH key to your GitHub account.
 
 Perform this GitHub Tutorial for setting up the SSH Key. [Connecting to GitHub with SSH](https://docs.github.com/en/enterprise/2.20/user/github/authenticating-to-github/connecting-to-github-with-ssh)
 
@@ -222,10 +202,11 @@ The built models are usually uploaded to [binary repositories](./distribution.md
 
 To find examples for these guidelines, go to the example repository: [MLOps pipeline](https://github.ibm.com/datascience-ibm/example-mlops-model-pipeline).
 
-This example code is hosted and versioned in the IBM Enterprise Github. 
+This example code is hosted and versioned in the IBM Enterprise Github.
 It is a `git` based repository, so it can be operated with the standard `git` CLI.
 One of the standard components is a [.gitignore](ttps://github.ibm.com/datascience-ibm/example-mlops-model-pipeline/.gitignore) file:
-```bash
+
+```shell
 *.iml
 *.idea
 *.cache
@@ -237,27 +218,28 @@ __pycache__/
 
 ...
 ```
+
 The file specifies, which files are not pushed from the local working tree to the remote.
 The example above shows, that generally files with endings `.iml, .idea, .cache` etc. are not synced with git.
 Usually these are local user specifc files, that are not relevant for the team or public.
 Typically this also includes password files, which are obviously not meant for the public.
 
-
 The respective data is versioned using [DVC](https://dvc.org). 
 For more detail refer to the examples section of [Chapter 7 - Data Management (Engineer)](./data_management.md#chapter-7---data-management).
-
 
 The models in this examples are pushed to Nexus (binary repository) after training.
 There they are versioned like a python package, which can be imported and installed via pip.
 An exemplary implementation for that can be found in the [web-service](https://github.ibm.com/datascience-ibm/example-mlops-web-service) repository.
 The `Pipfile` in that repository shows the import of the oncology model:
-```
+
+```yaml
 ...
 [packages]
 flask-restplus = "==0.13.0"
 oncology-model = {version="==0.1.175", index="nexus"}
 ...
-``` 
+```
+
 The package is used as `import` in the `src/oncology_service/serice.py` file:
 
 ```python
@@ -280,7 +262,7 @@ def predict(self, tumor: Tumor) -> Prediction:
                 f"the model returned and unknown prediction result:{result} ")
         else:
             return Prediction.from_classifier(value=result[0])
-``` 
+```
 
 In this method, the user only needs to call the predict method with the respective tumor object as an input.
 As this code is included into the python package with the model, the user is sure, which interface to use to interact with the trained model.

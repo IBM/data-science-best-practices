@@ -14,10 +14,13 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: "IBM Data Science Best Practices"
-domain: "thomas-pfeiffer.github.io"       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-url: "https://thomas-pfeiffer.github.io"  # the base hostname and protocol for your site, e.g. http://example.com
+description: >-
+  The goal of this repository is to enable data scientists and ML engineers to develop data science use cases and making it ready for production use.
+  This means focusing on the versioning, scalability, monitoring and engineering of the solution. 
+domain: "ibm.github.io"       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: "https://ibm.github.io"  # the base hostname and protocol for your site, e.g. http://example.com
 baseurl: "/"
-repository: "thomas-pfeiffer/data-science-best-practices"
+repository: "ibm/data-science-best-practices"
 search_enabled: true
 search:
   tokenizer_separator: /[\s/]+/ # enable support for hyphenated search words

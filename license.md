@@ -13,7 +13,7 @@ You should have received a copy of the [license](./LICENSE.txt) along with this 
 
 ## Contributing
 
-Our GitHub Repo: [https://github.com/IBM/data-science-best-practices]
+Our GitHub Repo: <https://github.com/IBM/data-science-best-practices>
 
 ### Contributor's Certificate of Origin
 

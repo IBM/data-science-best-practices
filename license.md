@@ -1,6 +1,6 @@
 ---
 layout: default
-title: License
+title: License & Contributing
 nav_order: 99
 ---
 # IBM Data Science - Best Practices

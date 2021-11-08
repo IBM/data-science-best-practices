@@ -1,31 +1,13 @@
-# Data Science - Best Practices &middot; [![License](https://img.shields.io/badge/license-CC%20BY%204.0-blue)](./LICENSE.txt)
+---
+layout: default
+title: Architecture
+nav_order: 3
+has_children: true
+has_toc: false
+---
+# IBM Data Science - Best Practices
 
-## Table of Content
-
-- [Chapter 1 - Introduction](./readme.md#chapter-1---introduction)
-- [Chapter 2 - Project Team (Design)](./project_team.md#chapter-2---project-team)
-- [Chapter 3 - Architecture (Deploy)](./architecture.md#chapter-3---architecture)
-- [Chapter 4 - Source Code (Engineer)](./source_code.md#chapter-4---source-code)
-- [Chapter 5 - Documentation (Engineer)](./documentation.md#chapter-5---documentation)
-- [Chapter 6 - Versioning (Engineer)](./versioning.md#chapter-6---versioning)
-- [Chapter 7 - Data Management (Engineer)](./data_management.md#chapter-7---data-management)
-- [Chapter 8 - Dependency Management (Engineer)](./dependency_management.md#chapter-8---dependency-management)
-- [Chapter 9 - Configuration Management (Engineer)](./configuration_management.md#chapter-9---configuration-management)
-- [Chapter 10 - Testing (Engineer)](./testing.md#chapter-10---testing)
-- [Chapter 11 - Quality Measurements (Monitor)](./quality_measurements.md#chapter-11---quality-measurements)
-- [Chapter 12 - Model Training (Engineer)](./model_training.md#chapter-12---model-training)
-- [Chapter 13 - Distribution (Deploy)](./distribution.md#chapter-13---distribution)
-- [Chapter 14 - Cloud-Deployment (Deploy)](./cloud_deployment.md#chapter-14---cloud-deployment)
-- [Chapter 15 - Edge Deployment (Deploy)](./edge_deployment.md#chapter-15---edge-deployment)
-- [Chapter 16 - Monitoring (Monitor)](./monitoring.md#chapter-16---monitoring)
-- [Chapter 17 - Automation (Scalability)](./automation.md#chapter-17---automation)
-- [Chapter 18 - Scaling (Scalability)](./scaling.md#chapter-18---scaling)
-- [Chapter 19 - Sizing (Scalability)](./sizing.md#chapter-19---sizing)
-- [Chapter 20 - Security (Engineer)](./security.md#chapter-20---security)
-- [Chapter 21 - Usage Recommendations (Scalability)](./recommendation.md#chapter-21---usage-recommendations)
-- [License & Contributing](./license.md)
-
-## Chapter 3 - Architecture
+## Architecture
 
 Architecture  - more specifically IT architecture - describes the components that together form the solution. 
 It describes what these components do and how they interact with each other.
@@ -119,6 +101,32 @@ For more details on this topic:
 
 - [IBM Architecture Center Micro Services - https://www.ibm.com/cloud/garage/architectures/microservices/overview](https://www.ibm.com/cloud/garage/architectures/microservices/overview)
 - [The Twelve Factor App - https://12factor.net/](https://12factor.net/)
+
+### A primer on RedHat OpenShift Architecture
+
+RedHat OpenShift (RHOS) is an open source container application platform that runs on Red Hat Enterprise Linux CoreOS (RHCOS) and is built on top of Kubernetes. It takes care of integrated scaling, monitoring, logging, and metering functions. With OpenShift, you can do anything that you can do on Kubernetes and much more with OpenShift-specific features. In a way you can think of OpenShift as a Kubernetes distribution in the same way that Anaconda for example is a python distribution.
+
+> And how does RHOS fit in the Hybrid Cloud story? - This is arguably the biggest strength of RHOS, it can run on prem and on any cloud (Azure, AWS, GCP, etc) meaning that you can move workloads in multicloud environments. An application running on RHOS will run the same regardless of if it is running on Azure or AWS or on prem or anywhere where you can install and run RHOS. This is something you cannot do with native cloud services, you cannot move a native pure Azure application into AWS. Obviously this is not applicable in every case but when you have environments that mix on-prem and public cloud RHOS is a very natural.
+
+You can find almost everything about the technical aspects of OpenShift through their documentation [HERE](https://docs.openshift.com)
+
+To make the most of OpenShift, it helps to understand its architecture. OpenShift consists of the following layers and components, and each component has its own responsibilities:
+
+- **Infrastructure layer**: In the infrastructure layer, you can host your applications on physical servers, virtual servers, or even on the cloud (private/public).
+- **Service layer**:The service layer is responsible for defining pods and access policy. There are mainly two types of nodes in an OpenShift cluster: main nodes and worker nodes. Applications reside in the worker nodes. You can have multiple worker nodes in the cluster; the worker nodes are where all your coding adventures happen, and they can be virtual or physical.
+- **Main node**:The Main node is responsible for managing the cluster, and it takes care of the worker nodes. It is responsible for four main tasks:
+  - API and authentication
+  - Data Store
+  - Scheduler
+  - Health/scaling
+- **Worker nodes**: The worker node is made of pods. A pod is the smallest unit that can be defined, deployed, and managed, and it can contain one or more containers. These containers include your applications and their dependencies.
+- **Registry**: The registry saves your images locally in the cluster. When a new image is pushed to the registry, it notifies OpenShift and passes image information.
+- **Persistent storage**:Persistent storage is where all of your data is saved and connected to containers.
+- **Routing layer**: It provides external access to the applications in the cluster from any device. It also provides load balancing and auto-routing around unhealthy pods.
+
+The Diagram below shows how these different layers are organized and how they fit on an overall architecture picture
+
+![RHOS Architecture Diagram](./res/img/Openshift.png)
 
 ### Deployment Architecture - Pipelines
 
@@ -456,7 +464,8 @@ The tool follows IBM's repeatable and consistent approach to developing IT archi
 
 For larger projects dedicated architecture software is preferred, e.g. IBM Rational Software Architect. In general: IBM IT Architect Assistant is preferred over documenting architecture in Microsoft PowerPoint!
 
-For more details and to download the tool refer to the links below: 
+For more details and to download the tool refer to the links below:
+
 - [IBM IT Architect Assistant](https://www.ibm.com/cloud/architecture/architectures/edit/architect-assistant)
 - [Download](https://www.ibm.com/cloud/architecture/download-architect-assistant) the IBM Architect Assistant, Community Edition
 - [Installation Guide](https://github.com/IBM/itaa-docs/blob/master/docs/community-edition/Install.md)

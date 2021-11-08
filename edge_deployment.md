@@ -1,31 +1,11 @@
-# Data Science - Best Practices &middot; [![License](https://img.shields.io/badge/license-CC%20BY%204.0-blue)](./LICENSE.txt)
+---
+layout: default
+title: Edge Deployment
+nav_order: 15
+---
+# IBM Data Science - Best Practices
 
-## Table of Content
-
-- [Chapter 1 - Introduction](./readme.md#chapter-1---introduction)
-- [Chapter 2 - Project Team (Design)](./project_team.md#chapter-2---project-team)
-- [Chapter 3 - Architecture (Deploy)](./architecture.md#chapter-3---architecture)
-- [Chapter 4 - Source Code (Engineer)](./source_code.md#chapter-4---source-code)
-- [Chapter 5 - Documentation (Engineer)](./documentation.md#chapter-5---documentation)
-- [Chapter 6 - Versioning (Engineer)](./versioning.md#chapter-6---versioning)
-- [Chapter 7 - Data Management (Engineer)](./data_management.md#chapter-7---data-management)
-- [Chapter 8 - Dependency Management (Engineer)](./dependency_management.md#chapter-8---dependency-management)
-- [Chapter 9 - Configuration Management (Engineer)](./configuration_management.md#chapter-9---configuration-management)
-- [Chapter 10 - Testing (Engineer)](./testing.md#chapter-10---testing)
-- [Chapter 11 - Quality Measurements (Monitor)](./quality_measurements.md#chapter-11---quality-measurements)
-- [Chapter 12 - Model Training (Engineer)](./model_training.md#chapter-12---model-training)
-- [Chapter 13 - Distribution (Deploy)](./distribution.md#chapter-13---distribution)
-- [Chapter 14 - Cloud-Deployment (Deploy)](./cloud_deployment.md#chapter-14---cloud-deployment)
-- [Chapter 15 - Edge Deployment (Deploy)](./edge_deployment.md#chapter-15---edge-deployment)
-- [Chapter 16 - Monitoring (Monitor)](./monitoring.md#chapter-16---monitoring)
-- [Chapter 17 - Automation (Scalability)](./automation.md#chapter-17---automation)
-- [Chapter 18 - Scaling (Scalability)](./scaling.md#chapter-18---scaling)
-- [Chapter 19 - Sizing (Scalability)](./sizing.md#chapter-19---sizing)
-- [Chapter 20 - Security (Engineer)](./security.md#chapter-20---security)
-- [Chapter 21 - Usage Recommendations (Scalability)](./recommendation.md#chapter-21---usage-recommendations)
-- [License & Contributing](./license.md)
-
-## Chapter 15 - Edge Deployment
+## Edge Deployment
 
 Aside from running your ML models on the cloud you can also use edge deployment.
 
@@ -65,7 +45,7 @@ Therefore, an asynchronous feedback loop for the data needs to be added to the s
 This creates additional dependencies and may even create the requirement to make your solution run on multiple platforms, e.g. Android and iOS for mobile apps.
 - In general edge devices are not as "potent" as dedicated cloud servers. Therefore, you might need to optimize your model / solution to run on a small CPU / memory / disk space footprint. It could be difficult to run a neural network with millions of parameters on an edge device. This optimization can be performed with **Model Compression**.
 
-The standard frameworks that are being used for Machine Learning do not have a particular size focus and are therefor not great for deploying models on edge, where the size can be key. To deal with this problem edge deployment can use **Model Compression.** 
+The standard frameworks that are being used for Machine Learning do not have a particular size focus and are therefor not great for deploying models on edge, where the size can be key. To deal with this problem edge deployment can use **Model Compression.**
 
 ### Apple CoreML
 

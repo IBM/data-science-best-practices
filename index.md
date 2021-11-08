@@ -48,7 +48,7 @@ The goal of this document is to enable you as a data scientist to develop a data
   <sub>&copy; IBM</sub>
 </p>
 
-'IBM Services for AI at Scale' is a GBS offering, which aims at scaling current AI engagements and applications towards an enterprise setup.
+'IBM Services for AI at Scale' is an IBM Consulting offering, which aims at scaling current AI engagements and applications towards an enterprise setup.
 It consists of multiple pillars, which are building up the overall offering:
 
 - **Vision:** Addresses the AI and data strategy of a company and a potential transformation roadmap to make AI a key

@@ -30,15 +30,15 @@ The goal of this document is to enable you as a data scientist to develop a data
 - [Python 3](https://www.python.org/downloads/) - Python 3.7
 - IDE (Integrated Development Environment) - Our recommendations: [Visual Studio Code](https://code.visualstudio.com/) or [PyCharm Community Edition](https://www.jetbrains.com/pycharm/)
 
-> **Q: Can I use Jupyter Notebooks as my IDE?**<br/>
+> **Q: Can I use Jupyter Notebooks as my IDE?**
 > A: No, since this is not an IDE. Also we feel that it tends to encourage bad coding practice, especially with beginners.
 > For further details: [I don't like Notebooks - Joel Grus (YouTube)](https://www.youtube.com/watch?v=7jiPeIFXb6U)
 
-> **Q: Can I use a plain text editor?**<br/>
+> **Q: Can I use a plain text editor?**
 > A: Yes, if you feel that this is the best for you, then go for it.
 > Just make sure that it is a plain text editor and not a rich-text editor.
 
-> **Q: Can I use Anaconda?**<br/>
+> **Q: Can I use Anaconda?**
 > A: No, Anaconda Free Version is only permitted for 'individual hobbyists, academics, non-profits, and small businesses' ([more details](https://www.anaconda.com/blog/anaconda-commercial-edition-faq)); You require commercial licensing to use Anaconda in a large enterprise.
 
 #### IBM Services for AI at Scale background

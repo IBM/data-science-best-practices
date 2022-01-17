@@ -18,8 +18,9 @@ Some of the goals that a healthy dependency management process tries to achieve 
 - Any team member should be able to easily download, build, and make changes to a project.
 - We should be able to have many different projects with large dependency trees without running into [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).
 
-### What is `pip`?  
-`pip` is a package manager for Python. That means it’s a tool that allows you to install and manage additional libraries and dependencies that are not distributed as part of the standard library. 
+### What is `pip`?
+
+`pip` is a package manager for Python. That means it’s a tool that allows you to install and manage additional libraries and dependencies that are not distributed as part of the standard library.
 
 The Python installer installs `pip`, so it should be ready for you to use, unless you installed an old version of Python. You can verify that pip is available by running the following command in your console:
 
@@ -74,13 +75,14 @@ All dependencies, including sub-dependencies, are listed, each with an exact ver
 
 This type of `requirements.txt` is generated from the output of running `$ pip freeze` from within a current working runtime environment for the application. This encourages dev/prod parity, and encourages you to treat code within external packages with the same level of respect as your application code (because it is your application code).
 
-Even though the fixed-version format for `requirements.txt` is considered to be a best practice, it can sometimes be a bit cumbersome. Namely, if you are working on the codebase of your proejct, and want to `$ pip install --upgrade` some/all of the packages, you wouldn't be able to do so easily. 
+Even though the fixed-version format for `requirements.txt` is considered to be a best practice, it can sometimes be a bit cumbersome. Namely, if you are working on the codebase of your project, and want to `$ pip install --upgrade` some/all of the packages, you wouldn't be able to do so easily.
 
 For additional information on the `requirements.txt` file, feel free to consult the [pip user guide](https://pip.pypa.io/en/latest/user_guide/#requirements-files).
 
 ### Taking dependency management to the next level with `pipenv` or `poetry`
 
-> **Q: Is there a better approach to ```pip freeze```?**<br/>
+> **Q: Is there a better approach to ```pip freeze```?**
+>
 > A: Yes, because there is a high risk to include dependencies that you don't actually need when executing `pip freeze`. You should always aim to minimize your dependencies.
 
 `poetry` is a dependency manager for Python projects and improves on the more traditional `requirements.txt` method described previously.
@@ -167,7 +169,7 @@ Copyright law gives authors rights, such as:
 - The author may grant permission via a license, for example, an open source license.
   - A license grants permission, but may also impose obligations.
   
-#### _It is mandatory for IBMers to adhere to the [IBM OSS Guidelines and associated processes](https://github.ibm.com/datascience-ibm/data-science-best-practices/blob/master/ibm_oss_guideline.md) (IBM Internal)_.
+#### _It is mandatory for IBMers to adhere to the [IBM OSS Guidelines and associated processes](https://github.ibm.com/datascience-ibm/data-science-best-practices/blob/master/ibm_oss_guideline.md) (IBM Internal)._
 
 #### MIT
 
@@ -207,7 +209,7 @@ This license is mainly applied to libraries. You may copy, distribute and modify
 
 To find examples for these guidelines, go to the example repository: [MLOps pipeline](https://github.ibm.com/datascience-ibm/example-mlops-model-pipeline).
 
-In this example implementation `pipenv` is used. 
+In this example implementation `pipenv` is used.
 As described above the two relevant files are `Pipfile` and `Pipfile.lock`. Both of these are located in the root folder of the example implementation.
 
 `Pipfile:`

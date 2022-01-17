@@ -93,7 +93,7 @@ In applied machine learning, we may wish to use confidence intervals in the pres
 
 In machine learning applications we often deal with non-parametric models for which often we do not know the distribution for a chosen performance measure. Furthermore, we may not know the analytical way to calculate a confidence interval for a selected metrics like e.g. AUC or RMSLE.
 
-In these cases, the bootstrap resampling method can be used as a nonparametric method for calculating confidence intervals, nominally called bootstrap confidence intervals.The bootstrap is a simulated Monte Carlo method where samples are drawn from a fixed finite dataset with replacement and a parameter is estimated on each sample. This procedure leads to a robust estimate of the true population parameter via sampling.
+In these cases, the bootstrap resampling method can be used as a nonparametric method for calculating confidence intervals, nominally called bootstrap confidence intervals. The bootstrap is a simulated Monte Carlo method where samples are drawn from a fixed finite dataset with replacement and a parameter is estimated on each sample. This procedure leads to a robust estimate of the true population parameter via sampling.
 
 A model can then be trained on the data sample each bootstrap iteration and evaluated on the out of bag samples to give a performance statistic, which can be collected and from which confidence intervals may be calculated.
 

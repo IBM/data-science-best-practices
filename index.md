@@ -41,14 +41,14 @@ The goal of this document is to enable you as a data scientist to develop a data
 > **Q: Can I use Anaconda?**
 > A: No, Anaconda Free Version is only permitted for 'individual hobbyists, academics, non-profits, and small businesses' ([more details](https://www.anaconda.com/blog/anaconda-commercial-edition-faq)); You require commercial licensing to use Anaconda in a large enterprise.
 
-#### IBM Services for AI at Scale background
+#### 'IBM Consulting for AI at Scale' Offering
 
 <p align="center">
     <img src="./res/img/AI_Scale.png" alt="AI at Scale Overview"> <br/>
   <sub>&copy; IBM</sub>
 </p>
 
-'IBM Services for AI at Scale' is an IBM Consulting offering, which aims at scaling current AI engagements and applications towards an enterprise setup.
+'IBM Consulting for AI at Scale' is an IBM Consulting offering, which aims at scaling current AI engagements and applications towards an enterprise setup.
 It consists of multiple pillars, which are building up the overall offering:
 
 - **Vision:** Addresses the AI and data strategy of a company and a potential transformation roadmap to make AI a key

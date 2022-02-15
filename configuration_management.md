@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Cloud Deployment
+title: Configuration Management
 nav_order: 9
 ---
 # IBM Data Science - Best Practices

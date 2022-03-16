@@ -7,14 +7,16 @@ nav_order: 11
 
 ## Quality Measurements
 
-### Code Coverage
+In general, there are two different types of quality management, which are relevant to the customer ("external view") and which we will elaborate on in the following:
 
-Code Coverage measures the percentage of source code that is executed and therefore tested by a given set of tests. ([Wikipedia](https://en.wikipedia.org/wiki/Code_coverage)) 100% means every line of source code has been executed during the tests. 0% means none has been executed during tests; this usually happens when you have not ran any tests.
-The Python library [`coverage`](https://pypi.org/project/coverage/) can be used to automatically measure the coverage of `unittest` tests. For unit tests you should aim for a very high percentage value (75% or more).
-For integration tests or system tests it is sometimes not possible to create a 100% test coverage.
-Therefore its code coverage is usually lower than the unit test code coverage.
+- **Data Quality** (→ General data quality and Fairness)
+- **Model Quality** (→ Performance and Transparency)
+
+While these two are mostly relevant in the dialogue with the customer, from an "internal" view it is of importance to measure the **code quality** (third section). Finally, we illustrate a few examples within MLOPs.
 
 ### Data Quality Checks
+
+#### General Data Quality Checks
 
 Many of the algorithms and techniques we use to model data make assumptions about the data and many others require the data to be in specific formats and to comply with specific rules before we run them. Most importantly perhaps, checking the quality of your data is key because a model once the data is in the format it expects, will run regardless of whether you replaced missing values with the average value for that column or if you removed them. Performing quality checks on your data allows you to determine whether the potential issues you see are naturally ocurring phenomena in the data or if they are the product of ingestion or other code bugs in your pipeline. Below is a list of some of the most important data quality checks you should perform:
 
@@ -38,6 +40,27 @@ For each column the following statistics - if relevant for the column type - are
 - **Missing values** matrix, count, heatmap and dendrogram of missing values
 - **Text analysis** learn about categories (Uppercase, Space), scripts (Latin, Cyrillic) and blocks (ASCII) of text data.
 
+#### Data Fairness
+
+Machine learning models are known to entail a "dark side": it is subject to systematic errors whereby ML replicates existing bias in the data.
+
+<p align="center">
+ <img src="https://media.giphy.com/media/GIIC4jmmUlXZS/giphy.gif" alt="Darth Vader in Episode V"><br/>
+ <sub>&copy; Disney</sub>
+</p>
+
+This can lead to disparate outcomes for people according to certain sociodemographics (gender, race, or other attributes deemed sensitive by law). Features representing these sociodemographics are called <em>sensitive features</em>. For instance, in credit scoring, [it has been shown](https://papers.nips.cc/paper/6374-equality-of-opportunity-in-supervised-learning.pdf) that AI denies loan applications from women and racial minorities at a disproportionately high rate. Obviously, there are different notions of fairness. Many of them also contradict each other—as perfect fairness is not achievable. To give you an idea, the most well-known, however, are:
+
+- Statistical parity (also called demographic parity and equal parity) requires that the predicted label be independent of the sensitive attribute. In other words, the likelihood of outcomes should be the same across the protected group (\eg, female users) and outside of it. For instance, in e-commerce, this fairness notion would require users selected by AI for receiving digital coupons to reflect an equal distribution of male and female users.
+
+- Equalized odds refers to independence between the sensitive attribute and both type-I/type-II errors. This notion is defined for cases in which a positive prediction provides a specific benefit that can be granted by some decision logic, yet where errors in granting this benefit should be equal within the protected group and outside of it. When applied to our previous example from e-commerce, the notion suggests that (i) the probability for users eligible for a coupon to be identified as such must be the same for male and female users, and (ii) the probability for users that are not eligible to still receive a coupon must also be the same for male and female users.
+
+In order to overcome fairness issues in ML, it is possible to either preprocess the data to make it more fair (preprocessing algorithms), adjust the model during train/runtime (inprocessing algorithms) or after exexution (post-processing algorithms).
+
+All different types can be performed with the IBM AI Fairness 360 Open Source Toolkit (aif360): [https://aif360.mybluemix.net/]
+
+Keep in mind that the importance of fairness as part of the model quality varies from customer to customer as well as from use case to use case.
+
 ### Model Quality Measurements
 
 #### Error Metrics
@@ -57,7 +80,7 @@ It is important then that we evaluate the output of our models based on the type
 
 When starting on a project, the first priority is learning about what potentially unforeseen challenges will stand in your way. Even if they will not be the final version of your model, baselines allow you to iterate very quickly, while wasting minimal time.
 
->     Everything should be made as simple as possible, but not simpler -Albert Einstein
+>     Everything should be made as simple as possible, but not simpler - Albert Einstein
 
 Usually there are three levels of performance you can easily estimate without any code and can serve as a first baseline:
 
@@ -102,13 +125,13 @@ We can demonstrate this process with the following pseudocode.
 ```python
 statistics = []
 for i in bootstraps:
-	train, test = select_sample_with_replacement(data, size)
-	model = train_model(train)
-	stat = evaluate_model(test)
-	statistics.append(stat)
+ train, test = select_sample_with_replacement(data, size)
+ model = train_model(train)
+ stat = evaluate_model(test)
+ statistics.append(stat)
 ```
 
-### Measuring
+#### Measuring
 
 To measure your model properly you need to keep track of the model configuration, its (hyper-)parameters and the resulting metrics. One tool to help with that is [MLflow](https://github.com/mlflow/mlflow), in particular its tracking feature.
 
@@ -133,19 +156,43 @@ For testing the measurements you can then use simple python testing frameworks l
 
 > When doing these test, you can't expect the model to produce e.g. an exact accuracy value and predefine that in your tests. One should define the test as greater than or smaller than (which ever makes more sense).
 
+#### Model Transparency / Explainable AI (XAI)
+
+Apart from the pure statistical performance of the regression or classification, some customers value the ability for the model to explain itself or, in other words, be transparent in its reasoning.
+
+<p align="center">
+    <img src="https://media.giphy.com/media/26BRQaiZM0IeyoJfa/giphy.gif" alt="Beware of Gus"><br/>
+ <sub>&copy; AMC</sub>
+</p>
+
+Depending on the chosen model, it can already have the ability to issue explanaitions. For instance, when using Support Vector Machines, the Support Vectors give an indicator on the importance of the used features. When using tree-based approaches, e.g. Random Forests, they have, by nature, a clear grading of features.
+
+When using deep neural nets, however, things get more difficult. When confronted with that, calculating the feature importances with so-called SHAP values may prove helpful. The framework [LIME](https://github.com/marcotcr/lime) provides many helpful possibilities to add the ability to models to issue explanaitions.
+
+### Code Quality
+
+Code quality refers to measuring how maintainable the source code is. Some key quality measurements are code coverage, code smells, and code complexity.
+
+#### Code Coverage
+
+Code Coverage measures the percentage of source code that is executed and therefore tested by a given set of tests. ([Wikipedia](https://en.wikipedia.org/wiki/Code_coverage)) 100% means every line of source code has been executed during the tests. 0% means none has been executed during tests; this usually happens when you have not ran any tests.
+The Python library [`coverage`](https://pypi.org/project/coverage/) can be used to automatically measure the coverage of `unittest` tests. For unit tests you should aim for a very high percentage value (75% or more).
+For integration tests or system tests it is sometimes not possible to create a 100% test coverage.
+Therefore its code coverage is usually lower than the unit test code coverage.
+
 ### Examples
 
-To find examples for these guidelines, go to the example repository: [MLOps pipeline](https://github.ibm.com/datascience-ibm/example-mlops-model-pipeline).
+To find examples for these guidelines, go to the example repository: [MLOps pipeline](https://github.ibm.com/datascience-ibm/example-mlops-model-pipeline) (IBM Internal).
 
 During the build process the tests in the `test/` folder are being run automatically:
 
 ```make
 unittest: clean lint type-check
-	pipenv run coverage run --source src,training -m unittest discover -v -s ./tests -p test*.py
-	pipenv run coverage report -m --fail-under 0
-	pipenv run coverage html -d build/unittest-coverage
-	pipenv run coverage json -o build/unittest-coverage.json --pretty-print
-	pipenv run coverage erase
+ pipenv run coverage run --source src,training -m unittest discover -v -s ./tests -p test*.py
+ pipenv run coverage report -m --fail-under 0
+ pipenv run coverage html -d build/unittest-coverage
+ pipenv run coverage json -o build/unittest-coverage.json --pretty-print
+ pipenv run coverage erase
 ```
 
 Also the code coverage is evaluated and also reported to a JSON file as scripted above (part of the `makefile`).
@@ -153,8 +200,8 @@ After the report is generated, it can be viewed in visualization tool.
 
 ```make
 upload.monitoring: test
-	pipenv run aws s3 cp ./build/unittest-coverage.json s3://machine-learning-metrics/trainer/unittest-coverage/unittest-coverage-$(version).json
-	pipenv run aws s3 cp ./build/test-coverage.json s3://machine-learning-metrics/trainer/test-coverage/test-coverage-$(version).json
+ pipenv run aws s3 cp ./build/unittest-coverage.json s3://machine-learning-metrics/trainer/unittest-coverage/unittest-coverage-$(version).json
+ pipenv run aws s3 cp ./build/test-coverage.json s3://machine-learning-metrics/trainer/test-coverage/test-coverage-$(version).json
 ```
 
 In the example the reports are pushed to AWS S3 with the commands above. From there they can be accessed with AWS QuickSight, which is a reporting tool, that can read JSON data from a S3 location directly.

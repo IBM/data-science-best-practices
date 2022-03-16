@@ -2,6 +2,8 @@
 layout: default
 title: Project Team
 nav_order: 2
+has_children: true
+has_toc: false
 ---
 # IBM Data Science - Best Practices
 

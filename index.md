@@ -27,7 +27,7 @@ The goal of this document is to enable you as a data scientist to develop a data
 
 #### Tools
 
-- [Python 3](https://www.python.org/downloads/) - Python 3.7
+- [Python 3](https://www.python.org/downloads/) - Python 3.10
 - IDE (Integrated Development Environment) - Our recommendations: [Visual Studio Code](https://code.visualstudio.com/) or [PyCharm Community Edition](https://www.jetbrains.com/pycharm/)
 
 > **Q: Can I use Jupyter Notebooks as my IDE?**

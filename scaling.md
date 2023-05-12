@@ -63,7 +63,7 @@ One way to battle concurrency was already discussed and is the use of horizontal
 
 ### Stateful vs. Stateless
 
-We generally talk about Stateful adn Stateless when talking about microservices. The key difference between stateful and stateless microservices is that stateless microservices don’t store data on the host, whereas stateful microservices require some kind of storage on the host who serves the requests.
+We generally talk about Stateful and Stateless when talking about microservices. The key difference between stateful and stateless microservices is that stateless microservices don’t store data on the host, whereas stateful microservices require some kind of storage on the host who serves the requests.
 
 > Keeping the state is critical for a stateful service. On the other hand, a stateless service can work using only pieces of information available in the request payload, or can acquire the required pieces of information from a dedicated stateful service, like a database.
 

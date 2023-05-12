@@ -17,7 +17,7 @@ machine learning project.
 Typically the tendency should lean towards having more time to do the actual machine learning work than the management of the necessary infrastructure.
 Cloud providers take over most of the management on different levels.
 There are different levels of abstraction (level of abstraction increasing from left to right:
-Infrastructure as a Service (IaaS), Platform as a Service (PaaS), Software as a Service (SaaS).  
+Infrastructure as a Service (IaaS), Platform as a Service (PaaS), Software as a Service (SaaS)).  
 For smaller scale engagements it is easier to opt for SaaS offerings.
 Most of these offerings are easy to work with and offer an API, which can be integrated in the solution.
 Popular examples for this are Azure ML, Watson Studio or AWS Sagemaker.
